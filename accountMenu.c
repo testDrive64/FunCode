@@ -79,7 +79,7 @@ int main(int argc, char *argv[]) {
         personList[i] = deleteAccount(personList[i]);
         break;
       case 4:
-        showList(personList);
+        showList(&personList[0]);
         break;
       case 5:
         running = 1;
@@ -125,6 +125,39 @@ Person newAccount() {
 }
 
 Person editAccount(Person pers) {
+  int num = 0;
+  printf("Welcher Eintrag soll geändert werden:\n");
+  printf("\t=> 1. Vorname\n");
+  printf("\t=> 2. Nachname\n");
+  printf("\t=> 3. Wohnort\n");
+  printf("\t=> 4. Geburtsjahr\n");
+  scanf("%i", num);
+
+  switch(num) {
+    case 1:
+      printf("Neuer Vorname: ");
+      fgets(pers.vname, MAX, stdin);
+      break;
+    case 2:
+      printf("Neuer Nachname: ");
+      fgets(pers.nname, MAX, stdin);
+      break;
+    case 3:
+      printf("Neue Postleitzahl: ");
+      do {
+        scanf("%51d", &pers.PLZ);
+      } while(getchar() != '\n');
+
+      printf("Neuer Wohnort: ");
+      fgets(pers.ort, MAX, stdin);
+      break;
+    case 4:
+      printf("Anderes Geburtsjahr  : ");
+      do {
+        scanf("%4d", &pers.geburtsjahr);
+      } while(getchar() != '\n');
+      break;
+  }
   return pers;
 }
 
@@ -134,5 +167,9 @@ Person deleteAccount(Person pers) {
 }
 
 void showList(Person *list) {
-
+  printf("\n");
+  do {
+    printf("%s\n", list);
+    *list++;
+  }while(list!= '\0');
 }
