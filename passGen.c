@@ -3,15 +3,36 @@
 #include <stdlib.h>
 
 
+<<<<<<< HEAD
 char intToCharacter(int);
 void controller(int*, int*, int*, int*, int);
 void passGenerator(int*, char*, char*);
 
 int main() {
+=======
+char bigLetterArr[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+						 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+char smallLetterArr[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+						   'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+
+char randomCharacter(int);
+
+int main() {
+	int randInt;
+	char randChar;
+	char pass[26];
+
+	for(int j=0;j<27;j++) {
+		printf("Small letter: %c\n", smallLetterArr[j]);
+		printf("Big letter: %c\n", bigLetterArr[j]);
+	}
+>>>>>>> 6e117267fe8ddf61f26c9b702aa961cc48ad3cbb
 
   int intBuffer = 0;
   int charBuffer = 0;
 
+<<<<<<< HEAD
   int  randInt; 
   int  randChar;
   int  pass[25];
@@ -83,6 +104,23 @@ void controller(int *rI, int *rC, int *pA, int *pCA, i) {
     pA++;
     pCA++;
   }
+=======
+	for (int i=0; i < 27; i+=2) {
+		randInt = rand() % 50;
+		randChar = rand() % 25;
+		printf("The number is: %d\n", randInt);
+		pass[i] = randInt;
+		pass[i+1] = randomCharacter(randChar);
+		printf("Pass: %d -> %d\n", i, pass[i]);
+	}
+
+	printf("The generated password: \n\t\t ");
+	for (int i=0; i<27; i++) {
+		printf("%c", pass[i]);
+	}
+
+	return 0;
+>>>>>>> 6e117267fe8ddf61f26c9b702aa961cc48ad3cbb
 }
 
 char intToAscii(int num) {
@@ -90,6 +128,7 @@ char intToAscii(int num) {
   return res;
 }
 
+<<<<<<< HEAD
 void passGenerator(int *pA, char *pCA, char *res) {
 
     for (int i=1; i<55; i++) {
@@ -108,5 +147,12 @@ void passGenerator(int *pA, char *pCA, char *res) {
       printf("i = %i\n", i);
       res++;
     }
+=======
+	if ((count %2) == 0) {
+		letter = bigLetterArr[count-1];
+	} else {
+		letter = smallLetterArr[count-1];
+	}
+	return letter;
+>>>>>>> 6e117267fe8ddf61f26c9b702aa961cc48ad3cbb
 }
-
